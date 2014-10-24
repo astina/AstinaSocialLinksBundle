@@ -10,22 +10,22 @@
             "email": "admin@astina.ch"
         }
     ],
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://satis.astina.ch"
-        }
-    ],
     "minimum-stability": "stable",
     "license": "MIT",
     "require": {
         "symfony/symfony": "~2.3",
-        "social-links/social-links": "~1.2.3"
+        "social-links/social-links": "~1.2.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.2.*"
     },
     "autoload": {
         "psr-0": {
             "Astina\\Bundle\\SocialLinksBundle": ""
         }
     },
-    "target-dir": "Astina/Bundle/SocialLinksBundle"
+    "target-dir": "Astina/Bundle/SocialLinksBundle",
+    "config": {
+        "bin-dir": "bin"
+    }
 }

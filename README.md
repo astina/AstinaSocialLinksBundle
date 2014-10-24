@@ -8,7 +8,7 @@ AstinaSocialLinksBundle is basically a wrapper around [oscarotero/social-links](
 
 ### Step 1: Add to composer.json
 
-```
+``` yml
 "require" :  {
     // ...
     "astina/social-links-bundle":"dev-master",
@@ -34,4 +34,10 @@ public function registerBundles()
 
 ## Usage
 
-TODO
+Main functionality of this bundle is to generate a 
+
+## Template extending
+
+...
+
+TODO: settings describe

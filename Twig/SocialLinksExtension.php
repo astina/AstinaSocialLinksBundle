@@ -34,11 +34,20 @@ class SocialLinksExtension extends \Twig_Extension
         );
     }
 
+    /**
+     * @param string $provider
+     * @param string $url
+     * @param array  $settings
+     *
+     * @return null|string
+     */
     public function getSocialLink($provider, $url, $settings = array())
     {
         if (!$url) {
-            return null;
+            throw new \InvalidArgumentException('Url for social links extension is not provided.');
         }
+
+        // TODO: class
 
         $page = new Page(array(
             'url'   => $url,
@@ -47,7 +56,7 @@ class SocialLinksExtension extends \Twig_Extension
         ));
 
         if (!$page->$provider) {
-            return null;
+            throw new \InvalidArgumentException(sprintf('Provider `%s does not exist in social links extension.', $provider));
         }
 
         $reference = new ControllerReference('AstinaSocialLinksBundle:SocialLinks:socialLink', array(
