@@ -61,4 +61,4 @@ Options and default values:
 
 ## Template extending
 
-It is also possible to extend a social link template, by simply adding a socialLink.html.twig template in `app/Resources/AstinaSocialLinksBundle/views/SocialLinks.
+It is also possible to extend a social link template, by simply adding a socialLink.html.twig template in `app/Resources/AstinaSocialLinksBundle/views/SocialLinks`.
