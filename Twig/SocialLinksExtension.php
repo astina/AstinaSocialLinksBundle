@@ -59,7 +59,7 @@ class SocialLinksExtension extends \Twig_Extension
         }
 
         $reference = new ControllerReference('AstinaSocialLinksBundle:SocialLinks:socialLink', array(
-            'data' => array(
+            'options' => array(
                 'socialUrl' => $page->$provider->shareUrl,
                 'target'    => isset($options['target']) ? $options['target'] : '_blank',
                 'image'     => isset($options['image']) ? $options['image'] : null,
