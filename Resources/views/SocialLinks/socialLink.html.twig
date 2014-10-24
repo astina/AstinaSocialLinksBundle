@@ -1,0 +1,3 @@
+<a href="{{ socialUrl }}"
+    {% if image is defined and image %}style="background: url({{ image }}) no-repeat;"{% endif %}
+    {% if target is defined and target %} target="{{ target }}"{% endif %}></a>

@@ -1,0 +1,30 @@
+{
+    "name": "astina/social-links-bundle",
+    "description": "Symfony bundle that is using SocialLinks to generate share links for social networks.",
+    "keywords": ["astina", "social", "links", "share"],
+    "type": "symfony-bundle",
+    "homepage": "http://astina.ch",
+    "authors": [
+        {
+            "name": "Astina AG",
+            "email": "admin@astina.ch"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://satis.astina.ch"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/symfony": "~2.3",
+        "social-links/social-links": "~1.2.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Astina\\Bundle\\SocialLinksBundle": ""
+        }
+    },
+    "target-dir": "Astina/Bundle/SocialLinksBundle"
+}

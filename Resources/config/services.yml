@@ -1,0 +1,9 @@
+parameters:
+    astina_social_links.twig.extension.class: Astina\Bundle\SocialLinksBundle\Twig\SocialLinksExtension
+
+services:
+    astina_social_links.twig.extension:
+        class: %astina_social_links.twig.extension.class%
+        arguments: [ @fragment.handler ]
+        tags:
+            - { name: twig.extension }
