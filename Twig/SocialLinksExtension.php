@@ -39,15 +39,13 @@ class SocialLinksExtension extends \Twig_Extension
      * @param string $url
      * @param array  $settings
      *
-     * @return null|string
+     * @return \InvalidArgumentException|string
      */
     public function getSocialLink($provider, $url, $settings = array())
     {
         if (!$url) {
             throw new \InvalidArgumentException('Url for social links extension is not provided.');
         }
-
-        // TODO: class
 
         $page = new Page(array(
             'url'   => $url,
@@ -62,8 +60,9 @@ class SocialLinksExtension extends \Twig_Extension
         $reference = new ControllerReference('AstinaSocialLinksBundle:SocialLinks:socialLink', array(
             'data' => array(
                 'socialUrl' => $page->$provider->shareUrl,
-                'target'    => isset($settings['target']) ? $settings['target'] : null,
-                'image'     => isset($settings['image']) ? $settings['image'] : null
+                'target'    => isset($settings['target']) ? $settings['target'] : '_blank',
+                'image'     => isset($settings['image']) ? $settings['image'] : null,
+                'class'     => isset($settings['class']) ? $settings['class'] : null
             )
         ));
 

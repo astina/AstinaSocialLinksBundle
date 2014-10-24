@@ -27,11 +27,13 @@ class SocialLinksController
         $socialUrl = isset($data['socialUrl']) ? $data['socialUrl'] : '';
         $target    = isset($data['target']) ? $data['target'] : '';
         $image     = isset($data['image']) ? $data['image'] : '';
+        $class     = isset($data['class']) ? $data['class'] : '';
 
         return array(
             'socialUrl' => $socialUrl,
             'target'    => $target,
-            'image'     => $image
+            'image'     => $image,
+            'class'     => $class
         );
     }
 }
