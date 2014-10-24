@@ -17,9 +17,10 @@
         }
     ],
     "minimum-stability": "stable",
+    "license": "MIT",
     "require": {
         "symfony/symfony": "~2.3",
-        "social-links/social-links": "~1.2.2"
+        "social-links/social-links": "~1.2.3"
     },
     "autoload": {
         "psr-0": {
