@@ -35,13 +35,14 @@ class SocialLinksExtension extends \Twig_Extension
     }
 
     /**
-     * @param string $provider
-     * @param string $url
-     * @param array  $settings
+     * @param string $provider Provider
+     * @param string $url      Url to share
+     * @param array $options   Options to set
+     *                         ['title' => null, 'text' => null, 'target' => '_blank', 'class' => null, 'image' => null]
      *
      * @return \InvalidArgumentException|string
      */
-    public function getSocialLink($provider, $url, $settings = array())
+    public function getSocialLink($provider, $url, $options = array())
     {
         if (!$url) {
             throw new \InvalidArgumentException('Url for social links extension is not provided.');
@@ -49,8 +50,8 @@ class SocialLinksExtension extends \Twig_Extension
 
         $page = new Page(array(
             'url'   => $url,
-            'title' => isset($settings['title']) ? $settings['title'] : null,
-            'text'  => isset($settings['text']) ? $settings['text'] : null
+            'title' => isset($options['title']) ? $options['title'] : null,
+            'text'  => isset($options['text']) ? $options['text'] : null
         ));
 
         if (!$page->$provider) {
@@ -60,9 +61,9 @@ class SocialLinksExtension extends \Twig_Extension
         $reference = new ControllerReference('AstinaSocialLinksBundle:SocialLinks:socialLink', array(
             'data' => array(
                 'socialUrl' => $page->$provider->shareUrl,
-                'target'    => isset($settings['target']) ? $settings['target'] : '_blank',
-                'image'     => isset($settings['image']) ? $settings['image'] : null,
-                'class'     => isset($settings['class']) ? $settings['class'] : null
+                'target'    => isset($options['target']) ? $options['target'] : '_blank',
+                'image'     => isset($options['image']) ? $options['image'] : null,
+                'class'     => isset($options['class']) ? $options['class'] : null
             )
         ));
 

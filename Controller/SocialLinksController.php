@@ -16,24 +16,19 @@ class SocialLinksController
 {
     /**
      * @param Request $request
-     * @param array   $data
+     * @param array   $options
      *
      * @Template()
      *
      * @return array
      */
-    public function socialLinkAction(Request $request, $data)
+    public function socialLinkAction(Request $request, $options)
     {
-        $socialUrl = isset($data['socialUrl']) ? $data['socialUrl'] : '';
-        $target    = isset($data['target']) ? $data['target'] : '';
-        $image     = isset($data['image']) ? $data['image'] : '';
-        $class     = isset($data['class']) ? $data['class'] : '';
-
         return array(
-            'socialUrl' => $socialUrl,
-            'target'    => $target,
-            'image'     => $image,
-            'class'     => $class
+            'socialUrl' => $options['socialUrl'],
+            'target'    => $options['target'],
+            'image'     => $options['image'],
+            'class'     => $options['class']
         );
     }
 }
