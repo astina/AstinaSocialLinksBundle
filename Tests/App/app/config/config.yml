@@ -1,0 +1,8 @@
+framework:
+    secret:          astinasociallinksbundle
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    test: ~
+
+imports:
+    - { resource: ../../../../Resources/config/services.yml }

@@ -16,6 +16,11 @@
             <directory suffix="Test.php">./Tests</directory>
         </testsuite>
     </testsuites>
+
+    <php>
+        <server name="KERNEL_DIR" value="./Tests/App/app" />
+    </php>
+
     <filter>
         <whitelist>
             <directory>./</directory>

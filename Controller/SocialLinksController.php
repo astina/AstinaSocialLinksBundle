@@ -1,9 +1,8 @@
 <?php
 
 namespace Astina\Bundle\SocialLinksBundle\Controller;
-
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class SocialLinksController
@@ -12,23 +11,20 @@ use Symfony\Component\HttpFoundation\Request;
  * @author    Drazen Peric <dperic@astina.ch>
  * @copyright 2014 Astina AG (http://astina.ch)
  */
-class SocialLinksController 
+class SocialLinksController extends Controller
 {
     /**
-     * @param Request $request
-     * @param array   $options
+     * @param array $options
      *
-     * @Template()
-     *
-     * @return array
+     * @return Response
      */
-    public function socialLinkAction(Request $request, $options)
+    public function socialLinkAction($options)
     {
-        return array(
+        return $this->render('AstinaSocialLinksBundle:SocialLinks:socialLink.html.twig', array(
             'socialUrl' => $options['socialUrl'],
             'target'    => $options['target'],
             'image'     => $options['image'],
             'class'     => $options['class']
-        );
+        ));
     }
 }
