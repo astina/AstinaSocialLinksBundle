@@ -38,27 +38,32 @@ Main functionality of this bundle is to generate a social link for given provide
 
 ``` twig
 {% set url = app.request.uri %}
-{{ social_link('facebook', url, {'target': null}) }}
+{{ social_link('facebook', url, {'text': 'Custom text', 'attributes: {'class': 'custom-share', 'target': '_self'} }) }}
 ```
 
 This example will return an HTML response which looks like.
 
 ``` html
-<a href="https://www.facebook.com/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fvagrant.astina.io%2Fapp_dev.php%2Fde%2Fkamera-und-zubehoer%2Fx-serie%2Ffujifilm-x100t-black"></a>
+<a href="https://www.facebook.com/sharer.php?s=100&amp;p%5Burl%5D=http%3A%2F%2Fwww.astina.ch" class="custom-share" target="_self"></a>
 ```
 
-Helper accepts three parameters - provider as string, url as string and options as array.
+Helper accepts three parameters - provider as string, url as string, options as multidimensional array and link text as string. There you can basically add as many custom attributes as you want.
 
 Options and default values:
 
 ``` php
-'title' => null
-'text' => null
-'target' => '_blank'
-'class' => null
-'image' => null
+'title'   => null
+'text'    => null
+'options' => array('attributes' => array('target' => '_blank'))
+'linkText => null
 ```
 
 ## Template extending
 
 It is also possible to extend a social link template, by simply adding a socialLink.html.twig template in `app/Resources/AstinaSocialLinksBundle/views/SocialLinks`.
+
+## Run tests
+
+``` bash
+bin/phpunit
+```

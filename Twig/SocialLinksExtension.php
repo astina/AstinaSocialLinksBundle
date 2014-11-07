@@ -38,16 +38,13 @@ class SocialLinksExtension extends \Twig_Extension
      * @param string $provider Provider
      * @param string $url      Url to share
      * @param array $options   Options to set
-     *                         ['title' => null, 'text' => null, 'target' => '_blank', 'class' => null, 'image' => null]
+     *                         ['title' => null, 'text' => null, 'attributes' => null]
+     * @param string $linkText Link text
      *
      * @return \InvalidArgumentException|string
      */
-    public function getSocialLink($provider, $url, $options = array())
+    public function getSocialLink($provider, $url = null, $options = array(), $linkText = null)
     {
-        if (!$url) {
-            throw new \InvalidArgumentException('Url for social links extension is not provided.');
-        }
-
         $page = new Page(array(
             'url'   => $url,
             'title' => isset($options['title']) ? $options['title'] : null,
@@ -58,12 +55,14 @@ class SocialLinksExtension extends \Twig_Extension
             throw new \InvalidArgumentException(sprintf('Provider `%s does not exist in social links extension.', $provider));
         }
 
+        $attributes = isset($options['attributes']) ? $options['attributes'] : array();
+        $attributes['target'] = isset($attributes['target']) ? $attributes['target'] : '_blank';
+
         $reference = new ControllerReference('AstinaSocialLinksBundle:SocialLinks:socialLink', array(
             'options' => array(
-                'socialUrl' => $page->$provider->shareUrl,
-                'target'    => isset($options['target']) ? $options['target'] : '_blank',
-                'image'     => isset($options['image']) ? $options['image'] : null,
-                'class'     => isset($options['class']) ? $options['class'] : null
+                'socialUrl'  => $page->$provider->shareUrl,
+                'attributes' => $attributes,
+                'linkText'   => $linkText
             )
         ));
 

@@ -28,10 +28,9 @@ class SocialLinksExtensionTest extends WebTestCase
         $expected = '<a href="https://www.facebook.com/sharer.php?s=100&amp;p%5Burl%5D=https%3A%2F%2Fwww.astina.ch&amp;p%5Btitle%5D=Astina.ch&amp;p%5Bsummary%5D=Astina.ch+website" class="test-class" target="_blank"></a>';
 
         $this->assertEquals($expected, $extension->getSocialLink('facebook', 'https://www.astina.ch', array(
-            'title'  => 'Astina.ch',
-            'text'   => 'Astina.ch website',
-            'target' => null,
-            'class'  => 'test-class'
+            'title'   => 'Astina.ch',
+            'text'    => 'Astina.ch website',
+            'options' => array('attributes' => array('class' => 'test-class'))
         )), "Extension method `getSocialLink()` didn't return proper url.");
     }
 }

@@ -21,10 +21,9 @@ class SocialLinksController extends Controller
     public function socialLinkAction($options)
     {
         return $this->render('AstinaSocialLinksBundle:SocialLinks:socialLink.html.twig', array(
-            'socialUrl' => $options['socialUrl'],
-            'target'    => $options['target'],
-            'image'     => $options['image'],
-            'class'     => $options['class']
+            'socialUrl'  => $options['socialUrl'],
+            'attributes' => $options['attributes'],
+            'linkText'   => $options['linkText']
         ));
     }
 }

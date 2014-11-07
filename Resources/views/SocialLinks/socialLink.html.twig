@@ -1,6 +1,6 @@
 {% spaceless %}
 <a href="{{ socialUrl }}"
-{%- if class is defined and class %} class="{{ class }}"{% endif %}
-{%- if image is defined and image %}style="background: url({{ image }}) no-repeat;"{% endif %}
-{%- if target is defined and target %} target="{{ target }}"{% endif %}></a>
+{%- for key, attribute in attributes %}
+    {{ key }}="{{ attribute }}"
+{%- endfor %}>{% if linkText is defined and linkText %}{{ linkText }}{% endif %}</a>
 {% endspaceless %}
