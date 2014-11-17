@@ -3,6 +3,7 @@
 namespace Astina\Bundle\SocialLinksBundle\Twig;
 
 use SocialLinks\Page;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ControllerReference;
 use Symfony\Component\HttpKernel\Fragment\FragmentHandler;
 
@@ -18,6 +19,11 @@ class SocialLinksExtension extends \Twig_Extension
      * @var FragmentHandler
      */
     private $handler;
+
+    /**
+     * @var Request
+     */
+    private $request;
 
     /**
      * @param FragmentHandler $handler
@@ -36,7 +42,7 @@ class SocialLinksExtension extends \Twig_Extension
 
     /**
      * @param string $provider Provider
-     * @param string $url      Url to share
+     * @param string $url      Url to share (by default it resolves to current url)
      * @param array $options   Options to set
      *                         ['title' => null, 'text' => null, 'attributes' => null]
      * @param string $linkText Link text
@@ -45,6 +51,12 @@ class SocialLinksExtension extends \Twig_Extension
      */
     public function getSocialLink($provider, $url = null, $options = array(), $linkText = null)
     {
+        if (!$url) {
+            $url = $this->request->getUri();
+        }
+
+        $linkText = $linkText ?: $provider;
+
         $page = new Page(array(
             'url'   => $url,
             'title' => isset($options['title']) ? $options['title'] : null,
@@ -67,6 +79,18 @@ class SocialLinksExtension extends \Twig_Extension
         ));
 
         return $this->handler->render($reference);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return $this
+     */
+    public function setRequest(Request $request = null)
+    {
+        $this->request = $request;
+
+        return $this;
     }
 
     public function getName()

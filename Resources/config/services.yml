@@ -2,5 +2,7 @@ services:
     astina_social_links.twig.extension:
         class: Astina\Bundle\SocialLinksBundle\Twig\SocialLinksExtension
         arguments: [ @fragment.handler ]
+        calls:
+            - [setRequest, ["@?request="]]
         tags:
             - { name: twig.extension }

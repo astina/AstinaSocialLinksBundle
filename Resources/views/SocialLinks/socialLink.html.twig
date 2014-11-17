@@ -1,6 +1,6 @@
 {% spaceless %}
 <a href="{{ socialUrl }}"
 {%- for key, attribute in attributes %}
-    {{ key }}="{{ attribute }}"
-{%- endfor %}>{% if linkText is defined and linkText %}{{ linkText }}{% endif %}</a>
+ {{ key }}="{{ attribute }}"
+{%- endfor %}>{{ linkText }}</a>
 {% endspaceless %}

@@ -36,9 +36,16 @@ public function registerBundles()
 
 Main functionality of this bundle is to generate a social link for given provider and url. It can be used as an twig extension, like in the example below.
 
+**Basic usage:**
+
 ``` twig
-{% set url = app.request.uri %}
-{{ social_link('facebook', url, {'text': 'Custom text', 'attributes: {'class': 'custom-share', 'target': '_self'} }) }}
+{{ social_link('facebook') }}
+```
+
+**Extended usage:**
+
+``` twig
+{{ social_link('facebook', 'http://www.astina.ch', {'text': 'Custom text', attributes: {'class': 'custom-share', 'target': '_self'} }, 'Custom link text') }}
 ```
 
 This example will return an HTML response which looks like.
