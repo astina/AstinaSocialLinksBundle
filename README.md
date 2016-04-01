@@ -2,7 +2,7 @@
 
 AstinaSocialLinksBundle is basically a wrapper around [oscarotero/social-links](https://github.com/oscarotero/social-links). Its main purpose is to generate social links based on given provider.
 
-[Currently supported providers.](https://github.com/oscarotero/social-links/tree/master/SocialLinks/Providers)
+[Currently supported providers.](https://github.com/oscarotero/social-links/tree/master#providers-supported)
 
 ## Install
 
