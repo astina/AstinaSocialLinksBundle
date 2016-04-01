@@ -15,7 +15,7 @@
     "require": {
         "symfony/symfony": "~2.3",
         "sensio/framework-extra-bundle": ">=2.3",
-        "social-links/social-links": "~1.3.0"
+        "social-links/social-links": "^1.8"
     },
     "require-dev": {
         "phpunit/phpunit": "4.2.*"
