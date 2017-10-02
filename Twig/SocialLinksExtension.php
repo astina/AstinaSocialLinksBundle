@@ -36,7 +36,7 @@ class SocialLinksExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'social_link' => new \Twig_Function_Method($this, 'getSocialLink', array('is_safe' => array('html'))),
+            'social_link' => new \Twig_SimpleFunction('social_link', array($this, 'getSocialLink'), array('is_safe' => array('html'))),
         );
     }
 
